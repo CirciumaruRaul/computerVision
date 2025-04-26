@@ -1,0 +1,6 @@
+.venv
+board+tiles
+evaluation
+train
+*.log
+*pycache*
