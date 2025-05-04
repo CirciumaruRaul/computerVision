@@ -9,6 +9,13 @@ from torchvision import models, datasets, transforms
 from torch.utils.data import DataLoader
 from PIL import Image
 
+
+# Change These to match the test set
+NUMBER_OF_GAMES = 5
+IMAGES_PER_GAME = 20
+DIRECTORY_OF_IMAGES = 'train' # points to the dir with the images relative to working directory           
+OUTPUT_DIR = 'evaluation/submission_files/Circiumaru_Raul_407/' # modify as you need
+
 '''
 --------------------------------------
 --------------------------------------
@@ -32,7 +39,7 @@ class Patch:
 #     transforms.ToTensor(),
 # ])
 
-# dataset = datasets.ImageFolder('train/shapes', transform=transform)
+# dataset = datasets.ImageFolder('shapes', transform=transform)
 # dataloader = DataLoader(dataset, batch_size=32, shuffle=True)
 
 # model = models.resnet18(pretrained=True)
@@ -615,9 +622,7 @@ def write_to_dir(target_dir, filename, data):
 --------------------------------------------------
 '''
 
-NUMBER_OF_GAMES = 5
-IMAGES_PER_GAME = 20
-DIRECTORY_OF_IMAGES = 'train'           # Relative to current path
+
 games, txt = get_games(DIRECTORY_OF_IMAGES, NUMBER_OF_GAMES)
 
 init_img = None
@@ -642,4 +647,4 @@ for i in range(NUMBER_OF_GAMES):
       filename = img.replace(DIRECTORY_OF_IMAGES + "/", '')
       filename = filename.replace('.jpg', '.txt')
       data = diffs + str(score)
-      write_to_dir(target_dir='evaluation/submission_files/Circiumaru_Raul_407/', filename=filename, data=data)
+      write_to_dir(target_dir=OUTPUT_DIR, filename=filename, data=data)

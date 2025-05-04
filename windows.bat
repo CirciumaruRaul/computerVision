@@ -43,7 +43,7 @@ if /I "%clean%"=="Y" (
     REM deactivate isn’t needed in batch; just remove
     CALL ".venv\Scripts\deactivate.bat" 2>nul
     rmdir /s /q .venv
-    if exist app.log del /q app.log
+    if exist .venv del /q .venv 
     echo Cleanup complete.
 ) ELSE (
     echo.
