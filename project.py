@@ -13,7 +13,7 @@ from PIL import Image
 # Change These to match the test set
 NUMBER_OF_GAMES = 5
 IMAGES_PER_GAME = 20
-DIRECTORY_OF_IMAGES = 'train' # points to the dir with the images relative to working directory           
+DIRECTORY_OF_IMAGES = 'test' # points to the dir with the images relative to working directory           
 OUTPUT_DIR = 'evaluation/submission_files/Circiumaru_Raul_407/' # modify as you need
 
 '''
