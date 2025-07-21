@@ -1,3 +1,16 @@
+# Overview of the project
+
+## Scope 
+Automated tracking score of qwirkle game using images taken from different angles.
+
+## General Arhitecture of the implementation
+- Board Extraction using countours and selecting the biggest 4 that appear or simply the biggest one if there are less then 4 contours found if no contour found default to taking the biggest rectangle that it can find using minAreaRect opencv function
+-  Divede the extracted board into patches as the image is now just the board regardeless of the angle that the picture was taken
+-  There are 4 quadrants and each quadrant has 2 possible configs, determine what config is used by detecting if a starting tile is placed on a specific square
+-  Init general matrix for the entire board
+-  If there is a tile detect, using the resnet18 finetuned with my shapes decide what shape each new tile is and compute its color using a range of possibilities for each color
+- Output is a txt file named "i_j.txt" (i = number of game, j = the move correspondent) per each image except the first image that dictates the configuration for the starting board
+
 # How to run the project
 
 ## Use the following file in accordance with the OS your using. Make sure the file has the right permisions to be executed
